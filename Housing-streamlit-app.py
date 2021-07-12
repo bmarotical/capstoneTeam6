@@ -5,7 +5,7 @@ import joblib
 
 st.title('Housing Price Prediction')
 # load dataset
-df = pd.read_csv('Data/train.csv')
+df = pd.read_csv('Data/housing.csv')
 
 # show the entire dataframe
 st.write(df)
@@ -27,7 +27,7 @@ st.markdown('**Please choose the dataset**:')  # you can use markdown like this
 
 
 # load models
-tree_clf = joblib.load('clf-best.pickle')
+tree_clf = joblib.load('Housing.pickle')
 
 # get inputs
 

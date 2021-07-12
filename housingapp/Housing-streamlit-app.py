@@ -13,7 +13,7 @@ st.image(
 
 st.title('House Price Estimator')
 # load dataset
-df = pd.read_csv('Data/housing.csv')
+df = pd.read_csv('housing.csv')
 
 # show the entire dataframe
 st.write(df)
