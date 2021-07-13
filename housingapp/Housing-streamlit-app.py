@@ -37,7 +37,6 @@ st.markdown('**Please provide your input below**:')  # you can use markdown like
 
 # load models
 tree_reg = joblib.load('Housing.pickle')
-st.write("loaded")
 # get inputs
 #'LotArea','BldgType','HouseStyle','YearBuilt','FullBath','HalfBath','BedroomAbvGr'
 ############
@@ -123,7 +122,7 @@ y_pred = tree_reg.predict(housePrice)
 #else:
 #    msg = 'This passenger is predicted to be: **survived**'
 
-st.write('The predicted House value is', y_pred)
+st.write('The predicted House value is', y_pred[0])
 #prediction_state.markdown('The predicted House value is', y_pred)
 
 
