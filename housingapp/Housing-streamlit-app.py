@@ -14,7 +14,7 @@ st.image(
 st.title('House Price Estimator')
 # load dataset
 df = pd.read_csv('housing.csv')
-
+df1 = pd.read_csv('perfData.csv')
 # show the entire dataframe
 st.write(df)
 
@@ -41,7 +41,7 @@ tree_reg = joblib.load('Housing.pickle')
 #'LotArea','BldgType','HouseStyle','YearBuilt','FullBath','HalfBath','BedroomAbvGr'
 ############
 ###Area of the housing data
-dataset = st.sidebar.radio('Area', ['Newark, DE', 'Wilmington, DE', 'Bear, DE', 'Ames, IA'])
+dataset = st.sidebar.radio('Area', ['Newark-DE', 'Bear-DE', 'Wilmington-DE', 'Ames-IA'])
 ############Building type
 #BldgType: ['1Fam', '2fmCon', 'Duplex', 'TwnhsE', 'Twnhs']
 
@@ -123,8 +123,15 @@ y_pred = tree_reg.predict(housePrice)
 #    msg = 'This passenger is predicted to be: **survived**'
 
 st.write('The predicted House value is', y_pred[0])
-#prediction_state.markdown('The predicted House value is', y_pred)
 
+row_index = df1.set_index('City').index.get_loc(dataset)
+variance = df1.iloc[row_index,2]
+#variance = variance.style.format("{:.2}")
+
+st.write("There could be a price variance of $",variance, "in", dataset )
+
+#st.write()
+#st.write(df1)
 
 #age = int(st.number_input('Age:', 0, 120, 20))
 #sib_sp = int(st.number_input('# of siblings / spouses aboard:', 0, 10, 0))
