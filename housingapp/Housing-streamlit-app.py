@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import joblib
+import numpy as np
 from sklearn import metrics
 st.set_page_config(layout="wide")
 st.image(
@@ -80,13 +81,13 @@ garage_range = range(0, 6)
 ###
 with st.form(key='columns_in_form'):
     BldgType = st.selectbox('Choose a Building Type', options_BldgType, format_func=lambda x: dic_BldgType[x])
-    BedroomAbvGr = int(st.number_input('# of Bedrooms', 0, 10, 0))
-    HalfBath = int(st.number_input('# of Half Bath', 0, 5, 0))
-    FullBath = int(st.number_input('# of Full Bath', 0, 10, 0))
-    TotalSF = int(st.number_input('Total Square feet',step=1))
-    LotArea = int(st.number_input('Lot Area',step=1))
+    BedroomAbvGr = int(st.number_input('# of Bedrooms', 0, 10, 5))
+    HalfBath = int(st.number_input('# of Half Bath', 0, 5, 2))
+    FullBath = int(st.number_input('# of Full Bath', 0, 10, 4))
+    TotalSF = int(st.number_input('Total Square feet',step=1, value = 5000))
+    LotArea = int(st.number_input('Lot Area',step=1, value = 50000))
     GarageCars = st.select_slider('# of Garage', options = garage_range, value = 2)
-    YearBuilt = st.select_slider('Year Built', options = year_range, value = 1970)
+    YearBuilt = st.select_slider('Year Built', options = year_range, value = 1995)
     submitted = st.form_submit_button('Submit')
 
 #num = st.number_input(
@@ -117,10 +118,17 @@ housePrice = pd.DataFrame(
 )
 
 y_pred = tree_reg.predict(housePrice)
-row_index = df1.set_index('City').index.get_loc(dataset)
-baseline = df1.iloc[row_index,5]
 
-rmse = metrics.mean_squared_error(baseline, y_pred)
+row_index = df1.set_index('City').index.get_loc(dataset)
+baselinePrice = df1.iloc[row_index,5]
+
+#baselineDf = pd.DataFrame(
+#   {     
+#       'baseline': [baseline]
+#   }
+#)
+
+variance = (baselinePrice - y_pred[0])
 
 
 #if y_pred[0] == 0:
@@ -132,7 +140,10 @@ st.write('The predicted House value is', y_pred[0])
 
 
 
-st.write("There could be a price variance of $",variance, "in", dataset )
+st.write("There could be a price variance of $",np.round(variance,2), "in", dataset )
+
+
+st.write("check out this [link](https://public.tableau.com/shared/2JGJX9Y2H?:showVizHome=no#1)")
 
 #st.write()
 #st.write(df1)
