@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import joblib
+from sklearn import metrics
 st.set_page_config(layout="wide")
 st.image(
     "https://www.freepnglogos.com/uploads/house-png/house-png-commonwealth-magazine-18.png",
@@ -14,9 +15,9 @@ st.image(
 st.title('House Price Estimator')
 # load dataset
 df = pd.read_csv('housing.csv')
-df1 = pd.read_csv('perfData.csv')
+df1 = pd.read_csv('../Data/perfData.csv')
 # show the entire dataframe
-st.write(df)
+st.write(df1)
 
 # f-string
 st.subheader('SalePrice')
@@ -116,6 +117,11 @@ housePrice = pd.DataFrame(
 )
 
 y_pred = tree_reg.predict(housePrice)
+row_index = df1.set_index('City').index.get_loc(dataset)
+baseline = df1.iloc[row_index,5]
+
+rmse = metrics.mean_squared_error(baseline, y_pred)
+
 
 #if y_pred[0] == 0:
 #    msg = 'This passenger is predicted to be: **died**'
@@ -124,9 +130,7 @@ y_pred = tree_reg.predict(housePrice)
 
 st.write('The predicted House value is', y_pred[0])
 
-row_index = df1.set_index('City').index.get_loc(dataset)
-variance = df1.iloc[row_index,2]
-#variance = variance.style.format("{:.2}")
+
 
 st.write("There could be a price variance of $",variance, "in", dataset )
 
