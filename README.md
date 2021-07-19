@@ -1,12 +1,14 @@
 # About
 
-This repo contains the code for predicting House prices with Prediction Project. 
-The housing dataset is taken from kaggle (https://www.kaggle.com/c/house-prices-advanced-regression-techniques) and price adjusted using the CPI module.
-RMSE scores of each of the below regressors are compared and the best model is used to predict the house prices in Newark-DE, Wilmington-DE, Bear-DE and Ames-IA.
+- This repo contains the code for predicting House prices with Advanced Regressions. 
+- The housing dataset is taken from kaggle (https://www.kaggle.com/c/house-prices-advanced-regression-techniques) and the Sales Price is inflated using the CPI module.
+- RMSE scores of each of the below mentioned regressors are compared and the best model is used to predict the house prices in Newark-DE, Wilmington-DE, Bear-DE and Ames-IA.
+- The datasets for Newark-DE, Wilmington-DE, Bear-DE and Ames-IA are downloaded using US Real Estate api from RapidApi (https://rapidapi.com/datascraper/api/us-real-estate/).
 
-- Support Vector Regressor
-- Ridge Regressor
-- XG Boost Regressor
+- Models Executed
+    - Support Vector Regressor
+    - Ridge Regressor
+    - XG Boost Regressor
 
 ## Local Setup
 
