@@ -1,4 +1,4 @@
-# Abou
+# About
 
 For a bank that originates mortgages, it is necessary to appraise the value of the property before lending the money to the borrower. 
 An appraisal is performed during the mortgage loan process so that there is an objective way to assess the house’s market value and ensure that the amount of money requested by the borrower is appropriate. 
