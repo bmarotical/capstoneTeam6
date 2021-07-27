@@ -35,4 +35,4 @@ Run `$ jupyter lab` to go over the notebooks.
 
 An app for public access has been created using Streamlit and hosted to cloud using Heroku.
 
-The app can be accessed at [Link]https://housing-demo-team6.herokuapp.com/
+The app can be accessed at [here](https://housing-demo-team6.herokuapp.com/)
