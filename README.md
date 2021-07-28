@@ -18,6 +18,13 @@ The objective of this project is to build a machine learning model that can corr
     - Ridge Regressor
     - XG Boost Regressor
 
+Team Members
+ - [Basil Marotical](https://www.linkedin.com/in/basil-marotical-b0b32119/)
+ - [Jinu Daniel](https://www.linkedin.com/in/jinu-daniel-67150960/)
+ - [Gary Grewal](https://www.linkedin.com/in/gary-grewal-6938567/)
+ - [Michael Cook](https://www.linkedin.com/in/michael-cook-69b6365a/)
+ - [Bhanu Bhattarai]
+
 ## Local Setup
 
 Clone the repo, go to the repo folder, setup the virtual environment, and install the required packages:
